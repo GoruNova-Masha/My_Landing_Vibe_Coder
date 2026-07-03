@@ -4,15 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Maria Krause — вайб-кодер. Портфолио, услуги и контакты.">
-  <meta name="theme-color" content="#0c1210">
+  <meta name="theme-color" content="#bc13fe">
   <title>Мария Горюнова: делаю проекты, которые держат ритм</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="page-bg" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
   <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
 
@@ -59,21 +60,22 @@
         <div class="hero-content">
           <p class="hero-badge hero-anim" style="--i:1">Портфолио вайб-кодера</p>
           <h1 id="hero-title" class="hero-title hero-anim" style="--i:2">
-            Maria Krause —<br>
-            <span class="hero-title__accent">вайб-кодер</span>
+            Мария<br>
+            <span class="hero-title__accent">Горюнова</span>
           </h1>
-          <p class="hero-subtitle hero-anim" style="--i:3">Баги не страшны, если код с вайбом! 🧠✨</p>
+          <p class="hero-subtitle hero-anim" style="--i:3">Чистый код, понятная логика, честный результат</p>
           <div class="hero-actions hero-anim" style="--i:4">
             <a href="#portfolio" class="btn btn--pulse" data-magnetic>Посмотреть проекты</a>
             <a href="#contact" class="btn btn--ghost">Написать</a>
           </div>
+          <div class="tech-cube-placeholder" aria-hidden="true"></div>
         </div>
       </div>
 
       <div class="marquee" aria-hidden="true">
         <div class="marquee__track">
-          <span>React · CSS · JavaScript · UI/UX · код с атмосферой · </span>
-          <span>React · CSS · JavaScript · UI/UX · код с атмосферой · </span>
+          <span>HTML · CSS · JavaScript · Telegram Bot · Android · адаптив · Git · </span>
+          <span>HTML · CSS · JavaScript · Telegram Bot · Android · адаптив · Git · </span>
         </div>
       </div>
     </section>
@@ -100,32 +102,18 @@
             </p>
           </div>
           <div class="about-content reveal">
-            <p class="about-quote">«Код с атмосферой» — мой девиз. Я начинающий вайб-кодер, осваиваю современные фронтенд-технологии. Создаю удобные и красивые веб-решения. Готова к новым вызовам!</p>
+            <p class="about-quote">«Код должен помогать людям» — я в это верю. Я начинающий вайб-кодер и уже делала вещи, которые работают в жизни, а не только в портфолио: Telegram-бот для кондитера, который автоматизирует заказы и ответы клиентам; адаптивный лендинг для психолога с упором на целевую аудиторию; калькулятор семейного бюджета с логикой расчётов и простым интерфейсом; мобильную игру под Android с базовой игровой механикой.</p>
+            <p class="about-text">Мне близки проекты для малого бизнеса — когда одна фича экономит часы рутины или делает сервис понятнее. Не гонюсь за громкими титулами — делаю понятные решения и чистый код.</p>
             <h3 class="about-skills-title">Навыки</h3>
             <ul class="skill-tags" aria-label="Технологии">
-              <li>React</li>
+              <li>HTML5</li>
               <li>CSS3</li>
-              <li>JavaScript</li>
-              <li>UI/UX</li>
+              <li>основы JavaScript</li>
+              <li>Telegram Bot API</li>
+              <li>основы Android</li>
+              <li>адаптивная вёрстка</li>
+              <li>Git</li>
             </ul>
-            <div class="skill-bars" role="group" aria-label="Уровень навыков">
-              <div class="skill-bar">
-                <div class="skill-bar__header"><span>React</span><span>60%</span></div>
-                <div class="skill-bar__track"><div class="skill-bar__fill" data-width="60"></div></div>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-bar__header"><span>CSS</span><span>70%</span></div>
-                <div class="skill-bar__track"><div class="skill-bar__fill" data-width="70"></div></div>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-bar__header"><span>JavaScript</span><span>75%</span></div>
-                <div class="skill-bar__track"><div class="skill-bar__fill" data-width="75"></div></div>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-bar__header"><span>UI/UX</span><span>50%</span></div>
-                <div class="skill-bar__track"><div class="skill-bar__fill" data-width="50"></div></div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -178,7 +166,52 @@
           <span class="section-num">03</span>
           <h2 id="portfolio-title" class="section-title">Портфолио</h2>
         </header>
-        <div class="portfolio-grid" id="portfolio-grid"></div>
+        <div class="portfolio-grid" id="portfolio-grid">
+          <article class="portfolio-work glass reveal">
+            <div class="portfolio-work__top">
+              <div class="portfolio-work__icon portfolio-work__icon--monitor" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="2" y="3" width="20" height="14" rx="2" stroke="#60a5fa" stroke-width="1.75"/>
+                  <path d="M8 21h8M12 17v4" stroke="#4ade80" stroke-width="1.75" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <span class="portfolio-work__badge portfolio-work__badge--live">В проде</span>
+            </div>
+            <h3 class="portfolio-work__title">Лендинг психолога</h3>
+            <p class="portfolio-work__desc">Лендинг для психолога: спроектировала конверсионную структуру и адаптивную вёрстку под мобильные устройства. Реализовала ключевые блоки для повышения заявок — сейчас проект в проде и стабильно приносит лиды.</p>
+            <a href="https://gorunova-masha.github.io/Landing_Ridzel_Maria/" class="btn btn--small btn--outline portfolio-work__btn" target="_blank" rel="noopener noreferrer">Открыть сайт</a>
+          </article>
+
+          <article class="portfolio-work glass reveal">
+            <div class="portfolio-work__top">
+              <div class="portfolio-work__icon portfolio-work__icon--gamepad" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59C2.1 12.57 4.36 19 12 19s9.9-6.43 9.3-10.41A4 4 0 0 0 17.32 5z" stroke="#60a5fa" stroke-width="1.75" stroke-linejoin="round"/>
+                  <path d="M8 12h2M9 11v2M15 12h.01M17 10h.01" stroke="#4ade80" stroke-width="1.75" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <span class="portfolio-work__badge portfolio-work__badge--demo">Демо доступно</span>
+            </div>
+            <h3 class="portfolio-work__title">Игра «Associative Maze»</h3>
+            <p class="portfolio-work__desc">Associative Maze: браузерная головоломка с ассоциативными переходами между комнатами. Логика переходов и управление реализованы на чистом JS — попробуй демо, чтобы прочувствовать уникальную механику навигации.</p>
+            <a href="https://gorunova-masha.github.io/Associative-maze-game/" class="btn btn--small btn--outline portfolio-work__btn" target="_blank" rel="noopener noreferrer">Играть в демо</a>
+          </article>
+
+          <article class="portfolio-work glass reveal">
+            <div class="portfolio-work__top">
+              <div class="portfolio-work__icon portfolio-work__icon--chat" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" stroke="#60a5fa" stroke-width="1.75" stroke-linejoin="round"/>
+                  <path d="M8 9h8M8 13h5" stroke="#4ade80" stroke-width="1.75" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <span class="portfolio-work__badge portfolio-work__badge--local">Локальный запуск</span>
+            </div>
+            <h3 class="portfolio-work__title">Чат-бот для кондитера</h3>
+            <p class="portfolio-work__desc">Чат-бот для кондитера: снизил нагрузку на менеджера за счёт автоответов и формы заказа. Проект готов к деплою — в репозитории есть подробная инструкция, как запустить его за 3 минуты.</p>
+            <a href="#" class="btn btn--small btn--outline portfolio-work__btn" target="_blank" rel="noopener noreferrer">GitHub (код + инструкция)</a>
+          </article>
+        </div>
       </div>
     </section>
 

@@ -39,7 +39,7 @@ const PORTFOLIO_ITEMS = [
 // ——— Портфолио ———
 function renderPortfolio() {
   const grid = document.getElementById("portfolio-grid");
-  if (!grid) return;
+  if (!grid || grid.children.length > 0) return;
 
   grid.innerHTML = PORTFOLIO_ITEMS.map((item, index) => {
     const num = String(index + 1).padStart(2, "0");
