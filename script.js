@@ -339,6 +339,8 @@ function initContactForm() {
   const nameInput = document.getElementById("name");
   const emailInput = document.getElementById("email");
   const messageInput = document.getElementById("message");
+  const consentCheckbox = document.getElementById("privacy-consent");
+  const consentError = form.querySelector(".checkbox-group .error-message");
   const successEl = document.getElementById("form-success");
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -347,6 +349,20 @@ function initContactForm() {
     const input = document.getElementById(fieldId);
     if (errorEl) errorEl.textContent = message;
     input?.classList.toggle("invalid", Boolean(message));
+  }
+
+  function showConsentError(message) {
+    if (!consentError) return;
+    if (message) {
+      consentError.textContent = message;
+      consentError.classList.add("is-visible");
+      consentError.style.display = "block";
+    } else {
+      consentError.textContent = "";
+      consentError.classList.remove("is-visible");
+      consentError.style.display = "none";
+    }
+    consentCheckbox?.classList.toggle("invalid", Boolean(message));
   }
 
   function validate() {
@@ -370,6 +386,13 @@ function initContactForm() {
       valid = false;
     } else showError("message", "");
 
+    if (!consentCheckbox?.checked) {
+      showConsentError("Необходимо согласие на обработку персональных данных");
+      valid = false;
+    } else {
+      showConsentError("");
+    }
+
     return valid;
   }
 
@@ -381,10 +404,12 @@ function initContactForm() {
       name: nameInput.value.trim(),
       email: emailInput.value.trim(),
       message: messageInput.value.trim(),
+      consent: consentCheckbox?.checked,
       sentAt: new Date().toISOString(),
     });
 
     form.reset();
+    showConsentError("");
     if (successEl) {
       successEl.hidden = false;
       setTimeout(() => {
@@ -396,6 +421,50 @@ function initContactForm() {
   [nameInput, emailInput, messageInput].forEach((input) => {
     input?.addEventListener("input", () => showError(input.id, ""));
   });
+
+  consentCheckbox?.addEventListener("change", () => {
+    if (consentCheckbox.checked) showConsentError("");
+  });
+}
+
+// ——— Tooltip «Условия использования» ———
+function initTermsTooltip() {
+  const wraps = document.querySelectorAll(".terms-tooltip-wrap");
+  if (!wraps.length) return;
+
+  const isTouchDevice = window.matchMedia("(hover: none), (pointer: coarse)").matches;
+
+  wraps.forEach((wrap) => {
+    const link = wrap.querySelector(".terms-link");
+    if (!link) return;
+
+    if (isTouchDevice) {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const isActive = wrap.classList.contains("tooltip-active");
+
+        wraps.forEach((other) => {
+          if (other !== wrap) other.classList.remove("tooltip-active");
+        });
+
+        wrap.classList.toggle("tooltip-active", !isActive);
+      });
+    }
+  });
+
+  if (isTouchDevice) {
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".terms-tooltip-wrap")) {
+        wraps.forEach((wrap) => wrap.classList.remove("tooltip-active"));
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        wraps.forEach((wrap) => wrap.classList.remove("tooltip-active"));
+      }
+    });
+  }
 }
 
 // ——— Старт ———
@@ -408,6 +477,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollAnimations();
   initSkillBars();
   initContactForm();
+  initTermsTooltip();
 
   requestAnimationFrame(() => {
     document.body.classList.add("loaded");

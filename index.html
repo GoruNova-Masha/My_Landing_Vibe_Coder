@@ -238,6 +238,14 @@
               <textarea id="message" name="message" rows="5" required placeholder="Расскажите о проекте..."></textarea>
               <span class="form-error" id="message-error" role="alert"></span>
             </div>
+            <div class="form-group checkbox-group">
+              <input type="checkbox" id="privacy-consent" required>
+              <label for="privacy-consent">
+                Я согласен на обработку персональных данных в соответствии с
+                <a href="terms.html" target="_blank" rel="noopener noreferrer">Политикой конфиденциальности</a>.
+              </label>
+              <span class="error-message" style="display:none; color:#d9534f; font-size:0.875rem; margin-top:4px;"></span>
+            </div>
             <button type="submit" class="btn btn--submit" data-magnetic>Отправить</button>
             <p class="form-success" id="form-success" role="status" hidden>Сообщение отправлено! Скоро свяжусь с вами.</p>
           </form>
@@ -280,7 +288,13 @@
       <p class="footer-motto">Код с душой</p>
       <nav class="footer-links" aria-label="Юридические ссылки">
         <a href="privacy.html">Политика конфиденциальности</a>
-        <a href="#">Условия использования</a>
+        <span class="terms-tooltip-wrap">
+          <a href="terms.html" class="terms-link" aria-label="Условия использования — краткая информация о персональных данных">Условия использования</a>
+          <span class="terms-tooltip" role="tooltip" id="terms-tooltip">
+            <span class="terms-tooltip__text">Мы не передаём данные третьим лицам. Данные используются только для связи с вами. Вы можете отозвать согласие, написав на <a href="mailto:projects@mariagoryunova.com">projects@mariagoryunova.com</a>.</span>
+            <a href="terms.html" class="terms-tooltip__more">Подробнее</a>
+          </span>
+        </span>
       </nav>
     </div>
   </footer>
