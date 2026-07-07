@@ -66,7 +66,7 @@
           <p class="hero-subtitle hero-anim" style="--i:3">Чистый код, понятная логика, честный результат</p>
           <div class="hero-actions hero-anim" style="--i:4">
             <a href="#portfolio" class="btn btn--pulse" data-magnetic>Посмотреть проекты</a>
-            <a href="#contact" class="btn btn--ghost">Написать</a>
+            <a href="mailto:m.nemnyaseva@gmail.com" class="btn-neon">Написать мне</a>
           </div>
           <div class="tech-cube-placeholder" aria-hidden="true"></div>
         </div>
@@ -254,7 +254,7 @@
             <div class="contact-details glass">
               <h3>Связаться напрямую</h3>
               <div class="contact-details__row">
-                <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:projects@mariagoryunova.com">projects@mariagoryunova.com</a></p>
+                <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:m.nemnyaseva@gmail.com" class="link-neon">projects@mariagoryunova.com</a></p>
                 <p><i class="fa-brands fa-telegram" aria-hidden="true"></i> <a href="https://t.me/maria_krausss" target="_blank" rel="noopener noreferrer">@maria_krausss</a></p>
                 <p><i class="fa-brands fa-github" aria-hidden="true"></i> <a href="https://github.com/GoruNova-Masha" target="_blank" rel="noopener noreferrer">GoruNova-Masha</a></p>
               </div>
@@ -286,16 +286,11 @@
     <div class="container footer-inner">
       <p class="footer-copy">© 2026 Maria Krause</p>
       <p class="footer-motto">Код с душой</p>
-      <nav class="footer-links" aria-label="Юридические ссылки">
-        <a href="privacy.html">Политика конфиденциальности</a>
-        <span class="terms-tooltip-wrap">
-          <a href="terms.html" class="terms-link" aria-label="Условия использования — краткая информация о персональных данных">Условия использования</a>
-          <span class="terms-tooltip" role="tooltip" id="terms-tooltip">
-            <span class="terms-tooltip__text">Мы не передаём данные третьим лицам. Данные используются только для связи с вами. Вы можете отозвать согласие, написав на <a href="mailto:projects@mariagoryunova.com">projects@mariagoryunova.com</a>.</span>
-            <a href="terms.html" class="terms-tooltip__more">Подробнее</a>
-          </span>
-        </span>
-      </nav>
+      <a href="mailto:m.nemnyaseva@gmail.com" class="link-neon">projects@mariagoryunova.com</a>
+      <div class="footer-legal" role="group" aria-label="Юридические документы">
+        <button type="button" class="footer-legal-btn" data-type="privacy" aria-controls="privacy-modal" aria-expanded="false">Политика конфиденциальности</button>
+        <button type="button" class="footer-legal-btn" data-type="terms" aria-controls="terms-modal" aria-expanded="false">Условия использования</button>
+      </div>
     </div>
   </footer>
 
@@ -314,6 +309,37 @@
         <a href="#" class="btn btn--outline" id="modal-github" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
     </div>
+  </div>
+
+  <div class="legal-modal" id="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-modal-title" hidden>
+    <div class="legal-modal__overlay" data-close-legal></div>
+    <section class="legal-modal__dialog" aria-describedby="privacy-modal-content">
+      <button type="button" class="legal-modal__close" data-close-legal aria-label="Закрыть окно">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+      <h2 id="privacy-modal-title" class="legal-modal__title">Политика конфиденциальности</h2>
+      <div class="legal-modal__body" id="privacy-modal-content">
+        <p>Мы бережно относимся к вашей информации и запрашиваем только те данные, которые нужны для связи и обсуждения проекта. Личные данные хранятся в защищенной среде и не передаются третьим лицам без вашего согласия.</p>
+        <p>Мы не используем ваши контакты для навязчивых рассылок и рекламного спама. Если вы оставили заявку, вы получите только сообщения по вашему запросу и статусу работы.</p>
+        <p>Нам важно, чтобы все было прозрачно: вы можете уточнить, какие данные у нас есть, попросить исправить их или удалить. Мы отвечаем на такие запросы спокойно и без лишних формальностей.</p>
+        <p><a href="mailto:projects@mariagoryunova.com">Написать нам</a></p>
+      </div>
+    </section>
+  </div>
+
+  <div class="legal-modal" id="terms-modal" role="dialog" aria-modal="true" aria-labelledby="terms-modal-title" hidden>
+    <div class="legal-modal__overlay" data-close-legal></div>
+    <section class="legal-modal__dialog" aria-describedby="terms-modal-content">
+      <button type="button" class="legal-modal__close" data-close-legal aria-label="Закрыть окно">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+      <h2 id="terms-modal-title" class="legal-modal__title">Условия использования</h2>
+      <div class="legal-modal__body" id="terms-modal-content">
+        <p>Оставляя заявку на сайте, вы подтверждаете согласие на обработку указанных данных в объеме, необходимом для обратной связи и выполнения работы по вашему запросу.</p>
+        <p>Мы используем эти данные только в рамках коммуникации по проекту: чтобы уточнить задачу, согласовать этапы и передать результат. Без скрытых подписок и дополнительных целей.</p>
+        <p>Если вы хотите прекратить обработку данных, достаточно написать нам об этом, и мы оперативно обработаем запрос.</p>
+      </div>
+    </section>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>

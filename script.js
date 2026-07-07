@@ -99,10 +99,16 @@ function openModal(id) {
   }
 }
 
+function isAnyModalOpen() {
+  const legalOpen = document.querySelector(".legal-modal:not([hidden])");
+  const portfolioOpen = modal && !modal.hidden;
+  return Boolean(legalOpen || portfolioOpen);
+}
+
 function closeModal() {
   if (!modal) return;
   modal.hidden = true;
-  document.body.style.overflow = "";
+  if (!isAnyModalOpen()) document.body.style.overflow = "";
 }
 
 modal?.querySelectorAll("[data-close-modal]").forEach((el) => {
@@ -427,44 +433,67 @@ function initContactForm() {
   });
 }
 
-// ——— Tooltip «Условия использования» ———
-function initTermsTooltip() {
-  const wraps = document.querySelectorAll(".terms-tooltip-wrap");
-  if (!wraps.length) return;
+// ——— Юридические модальные окна (футер) ———
+function initLegalModals() {
+  const modalMap = {
+    privacy: document.getElementById("privacy-modal"),
+    terms: document.getElementById("terms-modal"),
+  };
 
-  const isTouchDevice = window.matchMedia("(hover: none), (pointer: coarse)").matches;
+  const buttons = document.querySelectorAll(".footer-legal-btn[data-type]");
+  if (!buttons.length) return;
+  let activeTrigger = null;
 
-  wraps.forEach((wrap) => {
-    const link = wrap.querySelector(".terms-link");
-    if (!link) return;
-
-    if (isTouchDevice) {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const isActive = wrap.classList.contains("tooltip-active");
-
-        wraps.forEach((other) => {
-          if (other !== wrap) other.classList.remove("tooltip-active");
-        });
-
-        wrap.classList.toggle("tooltip-active", !isActive);
-      });
-    }
-  });
-
-  if (isTouchDevice) {
-    document.addEventListener("click", (e) => {
-      if (!e.target.closest(".terms-tooltip-wrap")) {
-        wraps.forEach((wrap) => wrap.classList.remove("tooltip-active"));
-      }
-    });
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        wraps.forEach((wrap) => wrap.classList.remove("tooltip-active"));
-      }
+  function syncTriggerState(openType = null) {
+    buttons.forEach((btn) => {
+      const isOpen = btn.dataset.type === openType;
+      btn.setAttribute("aria-expanded", String(isOpen));
     });
   }
+
+  function openLegalModal(type, trigger) {
+    const legalModal = modalMap[type];
+    if (!legalModal) return;
+
+    Object.values(modalMap).forEach((modalItem) => {
+      if (modalItem && modalItem !== legalModal) modalItem.hidden = true;
+    });
+
+    legalModal.hidden = false;
+    document.body.style.overflow = "hidden";
+    activeTrigger = trigger || null;
+    syncTriggerState(type);
+    legalModal.querySelector(".legal-modal__close")?.focus();
+  }
+
+  function closeLegalModal(legalModal) {
+    if (!legalModal) return;
+
+    legalModal.hidden = true;
+    syncTriggerState(null);
+    if (activeTrigger) activeTrigger.focus();
+    activeTrigger = null;
+    if (!isAnyModalOpen()) document.body.style.overflow = "";
+  }
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => openLegalModal(btn.dataset.type, btn));
+  });
+
+  Object.values(modalMap).forEach((legalModal) => {
+    if (!legalModal) return;
+
+    legalModal.querySelectorAll("[data-close-legal]").forEach((el) => {
+      el.addEventListener("click", () => closeLegalModal(legalModal));
+    });
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+
+    const openLegal = document.querySelector(".legal-modal:not([hidden])");
+    if (openLegal) closeLegalModal(openLegal);
+  });
 }
 
 // ——— Старт ———
@@ -477,7 +506,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollAnimations();
   initSkillBars();
   initContactForm();
-  initTermsTooltip();
+  initLegalModals();
 
   requestAnimationFrame(() => {
     document.body.classList.add("loaded");
