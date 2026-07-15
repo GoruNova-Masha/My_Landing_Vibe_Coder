@@ -337,107 +337,13 @@ function initSkillBars() {
   fills.forEach((fill) => observer.observe(fill));
 }
 
-// ——— Форма ———
-function initContactForm() {
-  const form = document.getElementById("contact-form");
-  if (!form) return;
-
-  const nameInput = document.getElementById("name");
-  const emailInput = document.getElementById("email");
-  const messageInput = document.getElementById("message");
-  const consentCheckbox = document.getElementById("privacy-consent");
-  const consentError = form.querySelector(".checkbox-group .error-message");
-  const successEl = document.getElementById("form-success");
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  function showError(fieldId, message) {
-    const errorEl = document.getElementById(`${fieldId}-error`);
-    const input = document.getElementById(fieldId);
-    if (errorEl) errorEl.textContent = message;
-    input?.classList.toggle("invalid", Boolean(message));
-  }
-
-  function showConsentError(message) {
-    if (!consentError) return;
-    if (message) {
-      consentError.textContent = message;
-      consentError.classList.add("is-visible");
-      consentError.style.display = "block";
-    } else {
-      consentError.textContent = "";
-      consentError.classList.remove("is-visible");
-      consentError.style.display = "none";
-    }
-    consentCheckbox?.classList.toggle("invalid", Boolean(message));
-  }
-
-  function validate() {
-    let valid = true;
-
-    if (!nameInput?.value.trim()) {
-      showError("name", "Введите имя");
-      valid = false;
-    } else showError("name", "");
-
-    if (!emailInput?.value.trim()) {
-      showError("email", "Введите email");
-      valid = false;
-    } else if (!emailRegex.test(emailInput.value)) {
-      showError("email", "Некорректный формат email");
-      valid = false;
-    } else showError("email", "");
-
-    if (!messageInput?.value.trim()) {
-      showError("message", "Напишите сообщение");
-      valid = false;
-    } else showError("message", "");
-
-    if (!consentCheckbox?.checked) {
-      showConsentError("Необходимо согласие на обработку персональных данных");
-      valid = false;
-    } else {
-      showConsentError("");
-    }
-
-    return valid;
-  }
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    if (!validate()) return;
-
-    console.log("[Contact form]", {
-      name: nameInput.value.trim(),
-      email: emailInput.value.trim(),
-      message: messageInput.value.trim(),
-      consent: consentCheckbox?.checked,
-      sentAt: new Date().toISOString(),
-    });
-
-    form.reset();
-    showConsentError("");
-    if (successEl) {
-      successEl.hidden = false;
-      setTimeout(() => {
-        successEl.hidden = true;
-      }, 5000);
-    }
-  });
-
-  [nameInput, emailInput, messageInput].forEach((input) => {
-    input?.addEventListener("input", () => showError(input.id, ""));
-  });
-
-  consentCheckbox?.addEventListener("change", () => {
-    if (consentCheckbox.checked) showConsentError("");
-  });
-}
+// ——— Форма обратной связи: нативная отправка через Formspree (без AJAX) ———
+// JS не перехватывает submit — браузер отправляет POST на action формы.
 
 // ——— Юридические модальные окна (футер) ———
 function initLegalModals() {
   const modalMap = {
     privacy: document.getElementById("privacy-modal"),
-    terms: document.getElementById("terms-modal"),
   };
 
   const buttons = document.querySelectorAll(".footer-legal-btn[data-type]");
@@ -505,7 +411,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initMagneticButtons();
   initScrollAnimations();
   initSkillBars();
-  initContactForm();
   initLegalModals();
 
   requestAnimationFrame(() => {

@@ -215,67 +215,79 @@
       </div>
     </section>
 
-    <section class="section contact" id="contact" aria-labelledby="contact-title">
+    <section class="section contacts" id="contact" aria-labelledby="contacts-title">
       <div class="container">
-        <header class="section-head reveal">
-          <span class="section-num">04</span>
-          <h2 id="contact-title" class="section-title">Контакты</h2>
-        </header>
-        <div class="contact-grid">
-          <form class="contact-form glass reveal" id="contact-form" novalidate>
-            <div class="form-group">
-              <label for="name">Имя</label>
-              <input type="text" id="name" name="name" required autocomplete="name" placeholder="Ваше имя">
-              <span class="form-error" id="name-error" role="alert"></span>
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com">
-              <span class="form-error" id="email-error" role="alert"></span>
-            </div>
-            <div class="form-group">
-              <label for="message">Сообщение</label>
-              <textarea id="message" name="message" rows="5" required placeholder="Расскажите о проекте..."></textarea>
-              <span class="form-error" id="message-error" role="alert"></span>
-            </div>
-            <div class="form-group checkbox-group">
-              <input type="checkbox" id="privacy-consent" required>
-              <label for="privacy-consent">
-                Я согласен на обработку персональных данных в соответствии с
-                <a href="terms.html" target="_blank" rel="noopener noreferrer">Политикой конфиденциальности</a>.
-              </label>
-              <span class="error-message" style="display:none; color:#d9534f; font-size:0.875rem; margin-top:4px;"></span>
-            </div>
-            <button type="submit" class="btn btn--submit" data-magnetic>Отправить</button>
-            <p class="form-success" id="form-success" role="status" hidden>Сообщение отправлено! Скоро свяжусь с вами.</p>
-          </form>
+        <div class="contacts-layout reveal">
+          <div class="contacts-intro">
+            <p class="contacts-kicker" aria-hidden="true">04</p>
+            <h2 class="contacts-title" id="contacts-title">Контакты</h2>
+            <p class="contacts-hint">Быстрее всего отвечаю в Telegram</p>
+            <p class="contacts-disclaimer">Данные обрабатываются согласно <button type="button" class="footer-legal-btn contacts-policy-trigger" data-type="privacy" aria-controls="privacy-modal" aria-expanded="false">Политике конфиденциальности</button>.</p>
+          </div>
 
-          <div class="contact-info reveal">
-            <div class="contact-details glass">
-              <h3>Связаться напрямую</h3>
-              <div class="contact-details__row">
-                <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:m.nemnyaseva@gmail.com" class="link-neon">projects@mariagoryunova.com</a></p>
-                <p><i class="fa-brands fa-telegram" aria-hidden="true"></i> <a href="https://t.me/maria_krausss" target="_blank" rel="noopener noreferrer">@maria_krausss</a></p>
-                <p><i class="fa-brands fa-github" aria-hidden="true"></i> <a href="https://github.com/GoruNova-Masha" target="_blank" rel="noopener noreferrer">GoruNova-Masha</a></p>
+          <a class="contacts-tg-icon" href="https://t.me/maria_krausss" target="_blank" rel="noopener noreferrer" aria-label="Открыть Telegram @maria_krausss">
+            <svg class="contacts-tg-icon__svg" viewBox="0 0 48 48" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="tg-plane-fill" x1="8" y1="40" x2="40" y2="8" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#9b59b6"/>
+                  <stop offset="55%" stop-color="#7c5cff"/>
+                  <stop offset="100%" stop-color="#6c5ce7"/>
+                </linearGradient>
+                <filter id="tg-plane-depth" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="1.2" dy="1.8" stdDeviation="0.6" flood-color="#0a0614" flood-opacity="0.85"/>
+                </filter>
+              </defs>
+              <!-- объёмная тень-слой -->
+              <path
+                d="M6.8 22.2 38.4 9.4c1.45-.58 2.95.66 2.45 2.1L31.2 39.2c-.5 1.35-2.25 1.55-3.05.35l-5.55-8.35-7.55 5.1c-.9.6-2.15.15-2.4-.9l-1.85-7.85L6.4 24.4c-.75-.4-.7-1.5.4-1.95z"
+                fill="#1a0f2b"
+                opacity="0.55"
+                transform="translate(1.4 1.6)"
+              />
+              <!-- основной самолётик с градиентом -->
+              <g filter="url(#tg-plane-depth)">
+                <path
+                  d="M6.8 22.2 38.4 9.4c1.45-.58 2.95.66 2.45 2.1L31.2 39.2c-.5 1.35-2.25 1.55-3.05.35l-5.55-8.35-7.55 5.1c-.9.6-2.15.15-2.4-.9l-1.85-7.85L6.4 24.4c-.75-.4-.7-1.5.4-1.95z"
+                  fill="url(#tg-plane-fill)"
+                  stroke="#0a0614"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+                <!-- складки для объёма -->
+                <path
+                  d="M22.4 31.15 19.2 41.05M22.4 31.15 39.7 11.05M22.4 31.15 9.1 23.3"
+                  stroke="#0a0614"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  opacity="0.9"
+                />
+              </g>
+            </svg>
+          </a>
+
+          <!-- Декоративный GIF-заполнитель (под формой) -->
+          <div class="contact-gif-filler" aria-hidden="true"></div>
+
+          <!-- Форма из contact.forma.html + Formspree — внутреннюю структуру не менять -->
+          <div class="contact-container">
+            <h3 class="contact-form-title">Связаться со мной</h3>
+            <form id="contact-form" action="https://formspree.io/f/xvzjepwk" method="POST">
+              <div class="input-group">
+                <label class="visually-hidden" for="contact-name">Имя</label>
+                <input type="text" id="contact-name" name="name" placeholder="Ваше имя" required autocomplete="name">
               </div>
-            </div>
-            <div class="social-links" aria-label="Социальные сети">
-              <a href="https://t.me/maria_krausss" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Telegram @maria_krausss"><i class="fa-brands fa-telegram"></i></a>
-              <a href="https://github.com/GoruNova-Masha" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub GoruNova-Masha"><i class="fa-brands fa-github"></i></a>
-              <a href="https://linkedin.com/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            </div>
-            <div class="qr-block glass">
-              <div class="qr-block__header">
-                <i class="fa-brands fa-telegram" aria-hidden="true"></i>
-                <span class="qr-block__title">Telegram</span>
+              <div class="input-group">
+                <label class="visually-hidden" for="contact-email">Почта для связи</label>
+                <input type="email" id="contact-email" name="email" placeholder="Ваша почта для связи" required autocomplete="email">
               </div>
-              <a href="https://t.me/maria_krausss" class="qr-block__link" target="_blank" rel="noopener noreferrer" aria-label="Открыть @maria_krausss в Telegram">
-                <div class="qr-block__image-wrap">
-                  <img src="images/telegram-qr.jpg" alt="QR-код Telegram @maria_krausss" width="240" height="320" loading="lazy">
-                </div>
-              </a>
-              <p class="qr-block__hint">@maria_krausss — сканируйте или нажмите на карточку</p>
-            </div>
+              <div class="input-group input-group--message">
+                <label class="visually-hidden" for="contact-message">Сообщение</label>
+                <textarea id="contact-message" name="message" rows="4" placeholder="Расскажите кратко о проекте и пожеланиях" required></textarea>
+              </div>
+              <button type="submit" class="submit-btn">Отправить заявку</button>
+            </form>
+            <p class="hint">Отвечу в течение 24 часов · <a href="privacy.html">Политика конфиденциальности</a></p>
           </div>
         </div>
       </div>
@@ -289,7 +301,6 @@
       <a href="mailto:m.nemnyaseva@gmail.com" class="link-neon">projects@mariagoryunova.com</a>
       <div class="footer-legal" role="group" aria-label="Юридические документы">
         <button type="button" class="footer-legal-btn" data-type="privacy" aria-controls="privacy-modal" aria-expanded="false">Политика конфиденциальности</button>
-        <button type="button" class="footer-legal-btn" data-type="terms" aria-controls="terms-modal" aria-expanded="false">Условия использования</button>
       </div>
     </div>
   </footer>
@@ -319,25 +330,10 @@
       </button>
       <h2 id="privacy-modal-title" class="legal-modal__title">Политика конфиденциальности</h2>
       <div class="legal-modal__body" id="privacy-modal-content">
-        <p>Мы бережно относимся к вашей информации и запрашиваем только те данные, которые нужны для связи и обсуждения проекта. Личные данные хранятся в защищенной среде и не передаются третьим лицам без вашего согласия.</p>
-        <p>Мы не используем ваши контакты для навязчивых рассылок и рекламного спама. Если вы оставили заявку, вы получите только сообщения по вашему запросу и статусу работы.</p>
-        <p>Нам важно, чтобы все было прозрачно: вы можете уточнить, какие данные у нас есть, попросить исправить их или удалить. Мы отвечаем на такие запросы спокойно и без лишних формальностей.</p>
+        <p>Мы ценим вашу приватность и не собираем персональные данные через сайт. Кнопка «Напишите нам» — это просто способ начать диалог: она открывает почтовый клиент или мессенджер, и вы сами решаете, какую информацию указать в сообщении.</p>
+        <p>Если вы отправите нам письмо или сообщение, мы будем использовать указанные вами данные только для ответа и обсуждения вашего запроса. Мы строго соблюдаем требования ФЗ‑152, не передаём ваши контакты третьим лицам и не используем их для рекламы или спама.</p>
+        <p>Вы полностью контролируете свои данные: в любой момент можете запросить информацию о том, что у нас хранится, или попросить удалить её. Просто напишите нам — мы оперативно всё сделаем.</p>
         <p><a href="mailto:projects@mariagoryunova.com">Написать нам</a></p>
-      </div>
-    </section>
-  </div>
-
-  <div class="legal-modal" id="terms-modal" role="dialog" aria-modal="true" aria-labelledby="terms-modal-title" hidden>
-    <div class="legal-modal__overlay" data-close-legal></div>
-    <section class="legal-modal__dialog" aria-describedby="terms-modal-content">
-      <button type="button" class="legal-modal__close" data-close-legal aria-label="Закрыть окно">
-        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
-      </button>
-      <h2 id="terms-modal-title" class="legal-modal__title">Условия использования</h2>
-      <div class="legal-modal__body" id="terms-modal-content">
-        <p>Оставляя заявку на сайте, вы подтверждаете согласие на обработку указанных данных в объеме, необходимом для обратной связи и выполнения работы по вашему запросу.</p>
-        <p>Мы используем эти данные только в рамках коммуникации по проекту: чтобы уточнить задачу, согласовать этапы и передать результат. Без скрытых подписок и дополнительных целей.</p>
-        <p>Если вы хотите прекратить обработку данных, достаточно написать нам об этом, и мы оперативно обработаем запрос.</p>
       </div>
     </section>
   </div>
