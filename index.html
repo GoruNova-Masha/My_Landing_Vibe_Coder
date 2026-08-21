@@ -8,9 +8,9 @@
   <title>Мария Горюнова: делаю проекты, которые держат ритм</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=hero-ru-3">
 </head>
 <body>
   <div class="page-bg" aria-hidden="true"></div>
@@ -58,15 +58,12 @@
           </div>
         </div>
         <div class="hero-content">
-          <p class="hero-badge hero-anim" style="--i:1">Портфолио вайб-кодера</p>
-          <h1 id="hero-title" class="hero-title hero-anim" style="--i:2">
-            Мария<br>
-            <span class="hero-title__accent">Горюнова</span>
-          </h1>
-          <p class="hero-subtitle hero-anim" style="--i:3">Чистый код, понятная логика, честный результат</p>
+          <p class="hero-badge hero-tagline hero-anim" style="--i:1">ПОРТФОЛИО ВАЙБ-КОДЕРА</p>
+          <h1 id="hero-title" class="hero-name hero-title hero-anim" style="--i:2">МАРИЯ ГОРЮНОВА</h1>
+          <p class="hero-subtitle hero-tagline hero-anim" style="--i:3">Чистый код, понятная логика, честный результат</p>
           <div class="hero-actions hero-anim" style="--i:4">
-            <a href="#portfolio" class="btn btn--pulse" data-magnetic>Посмотреть проекты</a>
-            <a href="mailto:m.nemnyaseva@gmail.com" class="btn-neon">Написать мне</a>
+            <a href="#portfolio" class="btn btn--pulse" data-magnetic>ПОСМОТРЕТЬ ПРОЕКТЫ</a>
+            <a href="mailto:m.nemnyaseva@gmail.com" class="btn-neon">НАПИСАТЬ МНЕ</a>
           </div>
           <div class="tech-cube-placeholder" aria-hidden="true"></div>
         </div>
@@ -79,6 +76,13 @@
         </div>
       </div>
     </section>
+
+    <div class="marquee-wrapper" aria-hidden="true">
+      <div class="marquee-track">
+        <span>HTML • CSS • JAVASCRIPT • TELEGRAM BOT • GIT • </span>
+        <span>HTML • CSS • JAVASCRIPT • TELEGRAM BOT • GIT • </span>
+      </div>
+    </div>
 
     <section class="section about" id="about" aria-labelledby="about-title">
       <div class="container">
@@ -215,82 +219,75 @@
       </div>
     </section>
 
-    <section class="section contacts" id="contact" aria-labelledby="contacts-title">
-      <div class="container">
-        <div class="contacts-layout reveal">
-          <div class="contacts-intro">
-            <p class="contacts-kicker" aria-hidden="true">04</p>
-            <h2 class="contacts-title" id="contacts-title">Контакты</h2>
-            <p class="contacts-hint">Быстрее всего отвечаю в Telegram</p>
-            <p class="contacts-disclaimer">Данные обрабатываются согласно <button type="button" class="footer-legal-btn contacts-policy-trigger" data-type="privacy" aria-controls="privacy-modal" aria-expanded="false">Политике конфиденциальности</button>.</p>
-          </div>
-
-          <a class="contacts-tg-icon" href="https://t.me/maria_krausss" target="_blank" rel="noopener noreferrer" aria-label="Открыть Telegram @maria_krausss">
-            <svg class="contacts-tg-icon__svg" viewBox="0 0 48 48" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="tg-plane-fill" x1="8" y1="40" x2="40" y2="8" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#9b59b6"/>
-                  <stop offset="55%" stop-color="#7c5cff"/>
-                  <stop offset="100%" stop-color="#6c5ce7"/>
-                </linearGradient>
-                <filter id="tg-plane-depth" x="-20%" y="-20%" width="140%" height="140%">
-                  <feDropShadow dx="1.2" dy="1.8" stdDeviation="0.6" flood-color="#0a0614" flood-opacity="0.85"/>
-                </filter>
-              </defs>
-              <!-- объёмная тень-слой -->
+    <section id="contact" class="section contacts contact-wrapper" aria-labelledby="contacts-title">
+      <div class="contact-text-block reveal">
+        <p class="contacts-kicker" aria-hidden="true">04</p>
+        <h2 class="contacts-title" id="contacts-title">Контакты</h2>
+        <p class="contacts-hint">Быстрее всего отвечаю в Telegram</p>
+        <p class="contacts-disclaimer">Данные обрабатываются согласно <button type="button" class="footer-legal-btn contacts-policy-trigger" data-type="privacy" aria-controls="privacy-modal" aria-expanded="false">Политике конфиденциальности</button>.</p>
+        <a class="contacts-tg-icon" href="https://t.me/maria_krausss" target="_blank" rel="noopener noreferrer" aria-label="Открыть Telegram @maria_krausss">
+          <svg class="contacts-tg-icon__svg" viewBox="0 0 48 48" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="tg-plane-fill" x1="8" y1="40" x2="40" y2="8" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#9b59b6"/>
+                <stop offset="55%" stop-color="#7c5cff"/>
+                <stop offset="100%" stop-color="#6c5ce7"/>
+              </linearGradient>
+              <filter id="tg-plane-depth" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="1.2" dy="1.8" stdDeviation="0.6" flood-color="#0a0614" flood-opacity="0.85"/>
+              </filter>
+            </defs>
+            <path
+              d="M6.8 22.2 38.4 9.4c1.45-.58 2.95.66 2.45 2.1L31.2 39.2c-.5 1.35-2.25 1.55-3.05.35l-5.55-8.35-7.55 5.1c-.9.6-2.15.15-2.4-.9l-1.85-7.85L6.4 24.4c-.75-.4-.7-1.5.4-1.95z"
+              fill="#1a0f2b"
+              opacity="0.55"
+              transform="translate(1.4 1.6)"
+            />
+            <g filter="url(#tg-plane-depth)">
               <path
                 d="M6.8 22.2 38.4 9.4c1.45-.58 2.95.66 2.45 2.1L31.2 39.2c-.5 1.35-2.25 1.55-3.05.35l-5.55-8.35-7.55 5.1c-.9.6-2.15.15-2.4-.9l-1.85-7.85L6.4 24.4c-.75-.4-.7-1.5.4-1.95z"
-                fill="#1a0f2b"
-                opacity="0.55"
-                transform="translate(1.4 1.6)"
+                fill="url(#tg-plane-fill)"
+                stroke="#0a0614"
+                stroke-width="1.8"
+                stroke-linejoin="round"
               />
-              <!-- основной самолётик с градиентом -->
-              <g filter="url(#tg-plane-depth)">
-                <path
-                  d="M6.8 22.2 38.4 9.4c1.45-.58 2.95.66 2.45 2.1L31.2 39.2c-.5 1.35-2.25 1.55-3.05.35l-5.55-8.35-7.55 5.1c-.9.6-2.15.15-2.4-.9l-1.85-7.85L6.4 24.4c-.75-.4-.7-1.5.4-1.95z"
-                  fill="url(#tg-plane-fill)"
-                  stroke="#0a0614"
-                  stroke-width="1.8"
-                  stroke-linejoin="round"
-                />
-                <!-- складки для объёма -->
-                <path
-                  d="M22.4 31.15 19.2 41.05M22.4 31.15 39.7 11.05M22.4 31.15 9.1 23.3"
-                  stroke="#0a0614"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  opacity="0.9"
-                />
-              </g>
-            </svg>
-          </a>
+              <path
+                d="M22.4 31.15 19.2 41.05M22.4 31.15 39.7 11.05M22.4 31.15 9.1 23.3"
+                stroke="#0a0614"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                opacity="0.9"
+              />
+            </g>
+          </svg>
+        </a>
+      </div>
 
-          <!-- Декоративный GIF-заполнитель (под формой) -->
-          <div class="contact-gif-filler" aria-hidden="true"></div>
-
-          <!-- Форма из contact.forma.html + Formspree — внутреннюю структуру не менять -->
-          <div class="contact-container">
-            <h3 class="contact-form-title">Связаться со мной</h3>
-            <form id="contact-form" action="https://formspree.io/f/xvzjepwk" method="POST">
-              <div class="input-group">
-                <label class="visually-hidden" for="contact-name">Имя</label>
-                <input type="text" id="contact-name" name="name" placeholder="Ваше имя" required autocomplete="name">
-              </div>
-              <div class="input-group">
-                <label class="visually-hidden" for="contact-email">Почта для связи</label>
-                <input type="email" id="contact-email" name="email" placeholder="Ваша почта для связи" required autocomplete="email">
-              </div>
-              <div class="input-group input-group--message">
-                <label class="visually-hidden" for="contact-message">Сообщение</label>
-                <textarea id="contact-message" name="message" rows="4" placeholder="Расскажите кратко о проекте и пожеланиях" required></textarea>
-              </div>
-              <button type="submit" class="submit-btn">Отправить заявку</button>
-            </form>
-            <p class="hint">Отвечу в течение 24 часов · <a href="privacy.html">Политика конфиденциальности</a></p>
-          </div>
+      <div class="contact-form-wrapper reveal">
+        <!-- Форма из contact.forma.html + Formspree — внутреннюю структуру не менять -->
+        <div class="contact-container">
+          <h3 class="contact-form-title">Связаться со мной</h3>
+          <form id="contact-form" action="https://formspree.io/f/xnpawpol" method="POST">
+            <div class="input-group">
+              <label class="visually-hidden" for="contact-name">Имя</label>
+              <input type="text" id="contact-name" name="name" placeholder="Ваше имя" required autocomplete="name">
+            </div>
+            <div class="input-group">
+              <label class="visually-hidden" for="contact-email">Почта для связи</label>
+              <input type="email" id="contact-email" name="email" placeholder="Ваша почта для связи" required autocomplete="email">
+            </div>
+            <div class="input-group input-group--message">
+              <label class="visually-hidden" for="contact-message">Сообщение</label>
+              <textarea id="contact-message" name="message" rows="4" placeholder="Расскажите кратко о проекте и пожеланиях" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Отправить заявку</button>
+          </form>
+          <p class="hint">Отвечу в течение 24 часов · <a href="privacy.html">Политика конфиденциальности</a></p>
         </div>
       </div>
+
+      <div class="contact-gif-filler" aria-hidden="true"></div>
     </section>
   </main>
 
@@ -337,6 +334,9 @@
       </div>
     </section>
   </div>
+
+  <div class="shape-1" aria-hidden="true"></div>
+  <div class="shape-2" aria-hidden="true"></div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>

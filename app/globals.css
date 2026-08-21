@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes formEnter {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-form-enter {
+  animation: formEnter 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes ledGlow {
+  0%,
+  100% {
+    opacity: 0.75;
+    filter: brightness(0.95);
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.15);
+  }
+}
+
+@keyframes ledAuraPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 1px rgba(0, 229, 255, 0.16),
+      0 0 18px rgba(0, 229, 255, 0.2),
+      0 0 42px rgba(0, 229, 255, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(0, 229, 255, 0.32),
+      0 0 28px rgba(0, 229, 255, 0.36),
+      0 0 64px rgba(0, 229, 255, 0.18);
+  }
+}
+
+@keyframes ledBorderFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.form-with-led {
+  position: relative;
+  isolation: isolate;
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  background: rgba(2, 6, 23, 0.35);
+  transition:
+    border-color 0.45s cubic-bezier(0.25, 1, 0.5, 1),
+    background-color 0.45s cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.form-with-led::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: 0;
+  border-radius: inherit;
+  padding: 1px;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(0, 229, 255, 0.95),
+    rgba(0, 229, 255, 0.12),
+    rgba(34, 211, 238, 0.75),
+    rgba(0, 229, 255, 0.18),
+    rgba(0, 229, 255, 0.95)
+  );
+  background-size: 220% 220%;
+  transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.form-with-led:hover,
+.form-with-led.group:hover {
+  border-color: transparent;
+  background: rgba(2, 6, 23, 0.55);
+  animation: ledAuraPulse 2.8s ease-in-out infinite;
+}
+
+.form-with-led:hover::before,
+.form-with-led.group:hover::before {
+  opacity: 1;
+  animation:
+    ledGlow 2.4s ease-in-out infinite,
+    ledBorderFlow 3.2s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-form-enter {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .form-with-led:hover,
+  .form-with-led.group:hover,
+  .form-with-led:hover::before,
+  .form-with-led.group:hover::before {
+    animation: none;
+  }
+
+  .form-with-led:hover,
+  .form-with-led.group:hover {
+    box-shadow:
+      0 0 0 1px rgba(0, 229, 255, 0.25),
+      0 0 24px rgba(0, 229, 255, 0.28),
+      0 0 48px rgba(0, 229, 255, 0.12);
+  }
+
+  .form-with-led:hover::before,
+  .form-with-led.group:hover::before {
+    opacity: 1;
+  }
+}

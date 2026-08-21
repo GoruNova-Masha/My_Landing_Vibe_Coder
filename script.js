@@ -402,6 +402,26 @@ function initLegalModals() {
   });
 }
 
+// ——— GIF-заполнитель в секции контактов ———
+function initContactGifFiller() {
+  const gifElement = document.querySelector(".contact-gif-filler");
+  if (!gifElement) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          gifElement.classList.add("is-visible");
+          observer.unobserve(gifElement);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  observer.observe(gifElement);
+}
+
 // ——— Старт ———
 document.addEventListener("DOMContentLoaded", () => {
   renderPortfolio();
@@ -412,6 +432,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollAnimations();
   initSkillBars();
   initLegalModals();
+  initContactGifFiller();
 
   requestAnimationFrame(() => {
     document.body.classList.add("loaded");
